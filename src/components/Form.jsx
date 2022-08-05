@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useDispatchTodos } from "../context/TodoContext";
 
-export const Form = ({ createTodo }) => {
+export const Form = () => {
   const [enterdTodo, setEnterdTodo] = useState("");
+  const dispatch = useDispatchTodos();
 
   const addTodo = (e) => {
     e.preventDefault();
@@ -10,7 +12,7 @@ export const Form = ({ createTodo }) => {
       id: uuidv4(),
       content: enterdTodo,
     };
-    createTodo(newTodo);
+    dispatch({ type: "todo/add", todo: newTodo });
     setEnterdTodo("");
   };
 

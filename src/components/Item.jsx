@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { useDispatchTodos } from "../context/TodoContext";
 
-export const Item = ({ todo, deleteTodo, updateTodo }) => {
+export const Item = ({ todo }) => {
   const [editingContent, setEditingContent] = useState(todo.content);
+  const dispatch = useDispatchTodos();
 
   const editMode = () => {
     const newTodo = {
       ...todo,
       editing: !todo.editing,
     };
-    updateTodo(newTodo);
+    dispatch({ type: "todo/update", todo: newTodo });
   };
 
   const confirmContent = (e) => {
@@ -18,13 +20,17 @@ export const Item = ({ todo, deleteTodo, updateTodo }) => {
       content: editingContent,
       editing: !todo.editing,
     };
-    updateTodo(newTodo);
+    dispatch({ type: "todo/update", todo: newTodo });
+  };
+
+  const deleteTodo = () => {
+    dispatch({ type: "todo/delete", todo: todo });
   };
 
   return (
     <div>
       <div id={todo.id}>
-        <form onSubmit={confirmContent}>
+        <form onSubmit={confirmContent} style={{ display: "inline" }}>
           <h3 onDoubleClick={editMode} style={{ display: "inline" }}>
             {todo.editing ? (
               <input
@@ -38,8 +44,7 @@ export const Item = ({ todo, deleteTodo, updateTodo }) => {
             )}
           </h3>
         </form>
-
-        <button onClick={() => deleteTodo(todo.id)}>OK</button>
+        <button onClick={() => deleteTodo()}>OK</button>
       </div>
     </div>
   );
