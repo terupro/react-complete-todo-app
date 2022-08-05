@@ -1,0 +1,59 @@
+{
+  "todo": [
+    {
+      "id": "5d87d115-7ebb-4d17-adce-4ffe4b39f8c5",
+      "content": "ご飯食べる",
+      "editing": false,
+      "completed": false
+    },
+    {
+      "content": "掃除する",
+      "id": "CIlpWTu",
+      "editing": false
+    },
+    {
+      "id": "76017d87-2d6c-43d5-b2a2-df7721907f4d",
+      "content": "fda"
+    },
+    {
+      "id": "ca9736d8-7345-4719-9390-e144214fb2c5",
+      "content": "fdafda",
+      "editing": false
+    },
+    {
+      "id": "3aa16ad0-e48c-4bb4-86c2-c24e9f45c740",
+      "content": "dfa"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "username": "chome太郎",
+      "age": 23,
+      "hobbies": [
+        "サッカー",
+        "野球"
+      ],
+      "premiumAccount": true
+    },
+    {
+      "id": 2,
+      "username": "fuga太郎",
+      "age": 17,
+      "hobbies": [
+        "カメラ"
+      ],
+      "premiumAccount": false
+    },
+    {
+      "id": 3,
+      "username": "piyo三郎",
+      "age": 50,
+      "hobbies": [
+        "筋トレ",
+        "水泳"
+      ],
+      "premiumAccount": true
+    }
+  ]
+}

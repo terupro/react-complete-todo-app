@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import todoApi from "../api/todo";
 import { useDispatchTodos } from "../context/TodoContext";
 
 export const Form = () => {
@@ -12,8 +13,10 @@ export const Form = () => {
       id: uuidv4(),
       content: enterdTodo,
     };
-    dispatch({ type: "todo/add", todo: newTodo });
-    setEnterdTodo("");
+    todoApi.post(newTodo).then(() => {
+      dispatch({ type: "todo/add", todo: newTodo });
+      setEnterdTodo("");
+    });
   };
 
   return (

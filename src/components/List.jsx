@@ -7,7 +7,7 @@ export const List = () => {
   return (
     <div>
       {todos.map((todo) => {
-        return <Item id={todo.id} todo={todo} />;
+        return <Item key={todo.id} todo={todo} />;
       })}
     </div>
   );

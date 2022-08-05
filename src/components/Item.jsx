@@ -1,16 +1,19 @@
 import React, { useState } from "react";
+import todoApi from "../api/todo";
 import { useDispatchTodos } from "../context/TodoContext";
 
 export const Item = ({ todo }) => {
   const [editingContent, setEditingContent] = useState(todo.content);
   const dispatch = useDispatchTodos();
 
-  const editMode = () => {
+  const toggleEditMode = () => {
     const newTodo = {
       ...todo,
       editing: !todo.editing,
     };
-    dispatch({ type: "todo/update", todo: newTodo });
+    todoApi.update(newTodo).then(() => {
+      dispatch({ type: "todo/update", todo: newTodo });
+    });
   };
 
   const confirmContent = (e) => {
@@ -20,18 +23,22 @@ export const Item = ({ todo }) => {
       content: editingContent,
       editing: !todo.editing,
     };
-    dispatch({ type: "todo/update", todo: newTodo });
+    todoApi.update(newTodo).then(() => {
+      dispatch({ type: "todo/update", todo: newTodo });
+    });
   };
 
   const deleteTodo = () => {
-    dispatch({ type: "todo/delete", todo: todo });
+    todoApi.delete(todo).then(() => {
+      dispatch({ type: "todo/delete", todo: todo });
+    });
   };
 
   return (
     <div>
       <div id={todo.id}>
         <form onSubmit={confirmContent} style={{ display: "inline" }}>
-          <h3 onDoubleClick={editMode} style={{ display: "inline" }}>
+          <h3 onDoubleClick={toggleEditMode} style={{ display: "inline" }}>
             {todo.editing ? (
               <input
                 style={{ color: "#000" }}
