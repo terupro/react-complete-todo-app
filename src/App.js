@@ -1,19 +1,24 @@
-import "./App.css";
+import styled from "styled-components";
 import { Todo } from "./components/Todo";
+
+const StyledAppTitle = styled.h1`
+  border-bottom: 2px dashed #cccccc;
+  padding-bottom: 20px;
+  color: #eeeeee;
+`;
+
+const StyledAppArea = styled.div`
+  max-width: 500px;
+  text-align: center;
+  margin: 0 auto;
+`;
 
 const App = () => {
   return (
-    <div className="App">
-      <h1
-        style={{
-          borderBottom: "1px solid #CCCCCC",
-          paddingBottom: "20px",
-        }}
-      >
-        TODO APP
-      </h1>
+    <StyledAppArea>
+      <StyledAppTitle>TODO APP</StyledAppTitle>
       <Todo />
-    </div>
+    </StyledAppArea>
   );
 };
 
