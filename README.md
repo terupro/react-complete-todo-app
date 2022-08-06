@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App]
 
 ## Image
-<img width="579" alt="Screen Shot 2022-08-06 at 18 29 30" src="https://user-images.githubusercontent.com/92189386/183243264-15ed5c84-3cfc-4be7-a98e-f4cbbef5ad70.png">
+<img width="579" alt="Screen Shot 2022-08-06 at 18 29 56" src="https://user-images.githubusercontent.com/92189386/183243280-38efb0c6-fd1d-455a-b375-50eed9c80f09.png">
 
 ## Available Scripts
 
